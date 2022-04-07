@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dao\" />
+    <Folder Include="Database\Alters\" />
+    <Folder Include="Database\Functions\" />
+    <Folder Include="Database\Tables\" />
+    <Folder Include="Database\Store procedure\" />
+    <Folder Include="Settings\Functions\" />
+    <Folder Include="Settings\Authentication\" />
+  </ItemGroup>
+
+</Project>
