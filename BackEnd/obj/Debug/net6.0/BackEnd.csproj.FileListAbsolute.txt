@@ -25,3 +25,9 @@ C:\Users\Ignacio\Desktop\Docs\Personal\Projects\ASMAPP\BackEnd\BackEnd\obj\Debug
 C:\Users\Ignacio\Desktop\Docs\Personal\Projects\ASMAPP\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.pdb
 C:\Users\Ignacio\Desktop\Docs\Personal\Projects\ASMAPP\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.genruntimeconfig.cache
 C:\Users\Ignacio\Desktop\Docs\Personal\Projects\ASMAPP\BackEnd\BackEnd\obj\Debug\net6.0\ref\BackEnd.dll
+C:\Users\Ignacio\Desktop\Docs\Personal\Projects\ASMAPP\BackEnd\BackEnd\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\Ignacio\Desktop\Docs\Personal\Projects\ASMAPP\BackEnd\BackEnd\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Ignacio\Desktop\Docs\Personal\Projects\ASMAPP\BackEnd\BackEnd\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\Ignacio\Desktop\Docs\Personal\Projects\ASMAPP\BackEnd\BackEnd\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\Ignacio\Desktop\Docs\Personal\Projects\ASMAPP\BackEnd\BackEnd\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Ignacio\Desktop\Docs\Personal\Projects\ASMAPP\BackEnd\BackEnd\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
