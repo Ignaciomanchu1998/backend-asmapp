@@ -1,6 +1,5 @@
 ﻿using BackEnd.Dao;
 using BackEnd.Settings.Globals;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BackEnd.Controllers
@@ -12,7 +11,7 @@ namespace BackEnd.Controllers
         private StructureResponse _struct = new();
         private PoliticaDao _po = new();
 
-        [HttpGet]       
+        [HttpGet(Name = "PoliticaGet")]       
         [ResponseCache(Duration = 60)]
         public async Task<IActionResult> PoliticaGetAll()
         {
@@ -20,21 +19,21 @@ namespace BackEnd.Controllers
             return Ok(_struct);
         }
 
-        [HttpPost]      
+        [HttpPost(Name = "PoliticaCreate")]      
         public async Task<IActionResult> PoliticaPost(string json)
         {
             _struct = await _po.PoliticaPost(json);
             return Ok(_struct);
         }
 
-        [HttpPut]
+        [HttpPut(Name = "PoliticaUpdate")]
         public async Task<IActionResult> PoliticaUpdate(string json)
         {
             _struct = await _po.PoliticaUpdate(json);
             return Ok(_struct);
         }
 
-        [HttpDelete]
+        [HttpDelete(Name = "PoliticaDelete")]
         public async Task<IActionResult> PoliticaDelete(string json)
         {
             _struct = await _po.PoliticaDelete(json);
