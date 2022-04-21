@@ -186,3 +186,5 @@ CREATE TABLE EquipoIngresoComponente(
 	,estado BIT DEFAULT 1 NOT NULL
 )
 
+-------- EMILIO SENGUANA - 06-04-2022 -11:03 -----------
+-------------------------------------------------------
