@@ -87,8 +87,6 @@ CREATE TABLE Politica(
 	,estado BIT NOT NULL
 )
 
-
-
 CREATE TABLE Entidad(
 	identidad INT NOT NULL PRIMARY KEY IDENTITY(1,1)
 	,razonSocial NVARCHAR(50) NOT NULL
