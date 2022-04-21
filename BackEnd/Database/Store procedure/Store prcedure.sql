@@ -59,3 +59,35 @@ DECLARE @idPersona INT, @idUsuario INT
 		END
 	END CATCH
 END
+
+
+GO 
+IF OBJECT_ID('uspPoliticaInsertar') IS NOT NULL
+BEGIN
+	DROP PROC uspPoliticaInsertar
+END
+GO 
+CREATE PROC uspPoliticaInsertar
+@json NVARCHAR(MAX)
+AS
+BEGIN
+SET NOCOUNT ON;
+SET LANGUAGE SPANISH;
+
+	BEGIN TRY
+		CREATE TABLE #tbl(
+			codi
+		)
+		IF EXISTS()
+		BEGIN TRAN
+
+		COMMIT TRAN  
+	END TRY 
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0 ROLLBACK TRAN 
+		BEGIN 
+			SELECT '0', ERROR_MESSAGE(),'Error'
+			RETURN
+		END 
+	END CATCH
+END
