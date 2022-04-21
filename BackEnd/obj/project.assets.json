@@ -656,11 +656,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ignacio\\Desktop\\Docs\\Personal\\Projects\\ASMAPP\\BackEnd\\BackEnd\\BackEnd.csproj",
+      "projectUniqueName": "C:\\Users\\Ignacio\\Desktop\\Docs\\Personal\\Projects\\asm\\BackEnd\\BackEnd\\BackEnd.csproj",
       "projectName": "BackEnd",
-      "projectPath": "C:\\Users\\Ignacio\\Desktop\\Docs\\Personal\\Projects\\ASMAPP\\BackEnd\\BackEnd\\BackEnd.csproj",
+      "projectPath": "C:\\Users\\Ignacio\\Desktop\\Docs\\Personal\\Projects\\asm\\BackEnd\\BackEnd\\BackEnd.csproj",
       "packagesPath": "C:\\Users\\Ignacio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ignacio\\Desktop\\Docs\\Personal\\Projects\\ASMAPP\\BackEnd\\BackEnd\\obj\\",
+      "outputPath": "C:\\Users\\Ignacio\\Desktop\\Docs\\Personal\\Projects\\asm\\BackEnd\\BackEnd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ignacio\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -716,7 +716,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
