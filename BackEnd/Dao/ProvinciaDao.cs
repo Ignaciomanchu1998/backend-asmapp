@@ -5,17 +5,18 @@ using System.Data.SqlClient;
 
 namespace BackEnd.Dao
 {
-    public class EquipoDao: ConnectionDB
+    public class ProvinciaDao: ConnectionDB
     {
         private StructureResponse _struct = new();
 
-        public async Task<StructureResponse> ProductoGetAll()
+        public async Task<StructureResponse> ProvinciaGetById(int idPais)
         {
-            var em = new List<EquipoModel>();
+            List<ProvinciaModel> data = new();
             try
             {
-                using (SqlCommand cmd = new SqlCommand("uspEquipoList", con))
+                using (SqlCommand cmd = new SqlCommand("uspProvinciaListById", con))
                 {
+                    cmd.Parameters.AddWithValue("idPais", idPais);
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
                     using (SqlDataReader readerAsync = await cmd.ExecuteReaderAsync())
@@ -25,20 +26,19 @@ namespace BackEnd.Dao
                             _struct.response(readerAsync.GetString(0), readerAsync.GetString(1), readerAsync.GetString(2));
                             if (_struct.code == "1")
                             {
-                                EquipoModel item = new();
-                                item.idEquipo = readerAsync.GetInt32(3);
-                                item.categoria = new();
-                                item.categoria.idCategoria = readerAsync.GetInt32(3);
-                                item.categoria.descripcion = readerAsync.GetString(4);
+                                ProvinciaModel item = new();
+                                item.idProvincia = readerAsync.GetInt32(3);
+                                item.pais = new();
+                                item.pais.idPais= readerAsync.GetInt32(4);
                                 item.descripcion = readerAsync.GetString(5);
-                                item.estado  = readerAsync.GetBoolean(6);
-                                em.Add(item);
+                                item.estado = readerAsync.GetBoolean(6);
+                                data.Add(item);
                             }
                         }
                     }
                     con.Close();
                 }
-                _struct.data = em;
+                _struct.data = data;
             }
             catch (Exception ex)
             {
@@ -47,13 +47,13 @@ namespace BackEnd.Dao
             return _struct;
         }
 
-        public async Task<StructureResponse > EquipoPost(EquipoModel data)
+        public async Task<StructureResponse> ProvinciaPost(ProvinciaModel data)
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("uspEquipoInsert", con))
+                using (SqlCommand cmd = new SqlCommand("uspProvinciaPost", con))
                 {
-                    cmd.Parameters.AddWithValue("descripcion", data.categoria.descripcion);
+                    cmd.Parameters.AddWithValue("idPais", data.pais?.idPais);
                     cmd.Parameters.AddWithValue("descripcion", data.descripcion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
@@ -74,14 +74,14 @@ namespace BackEnd.Dao
             return _struct;
         }
 
-        public async Task<StructureResponse> EquipoUpdate(EquipoModel data)
+        public async Task<StructureResponse> ProvinciaPut(ProvinciaModel data)
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("uspEquipoUpdate", con))
+                using (SqlCommand cmd = new SqlCommand("uspProvinciaPut", con))
                 {
-                    cmd.Parameters.AddWithValue("idEquipo", data.idEquipo);
-                    cmd.Parameters.AddWithValue("descripcion", data.categoria.descripcion);
+                    cmd.Parameters.AddWithValue("idProvincia", data.idProvincia);
+                    cmd.Parameters.AddWithValue("idPais", data.pais?.idPais);
                     cmd.Parameters.AddWithValue("descripcion", data.descripcion);
                     cmd.Parameters.AddWithValue("estado", data.estado);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -103,13 +103,13 @@ namespace BackEnd.Dao
             return _struct;
         }
 
-        public async Task<StructureResponse> EquipoDelete(int idEquipo)
+        public async Task<StructureResponse> ProvinciaDelete(int idProvincia)
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("uspEquipoDelete", con))
+                using (SqlCommand cmd = new SqlCommand("uspProvinciaDelete", con))
                 {
-                    cmd.Parameters.AddWithValue("idEquipo", idEquipo);
+                    cmd.Parameters.AddWithValue("idProvincia", idProvincia);
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
                     using (SqlDataReader readerAsync = await cmd.ExecuteReaderAsync())

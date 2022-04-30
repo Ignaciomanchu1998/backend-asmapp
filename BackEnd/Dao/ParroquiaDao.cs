@@ -5,17 +5,18 @@ using System.Data.SqlClient;
 
 namespace BackEnd.Dao
 {
-    public class EquipoDao: ConnectionDB
+    public class ParroquiaDao: ConnectionDB
     {
         private StructureResponse _struct = new();
 
-        public async Task<StructureResponse> ProductoGetAll()
+        public async Task<StructureResponse> ParroquiaGetById(int idCanton)
         {
-            var em = new List<EquipoModel>();
+            List<ParroquiaModel> data = new();
             try
             {
-                using (SqlCommand cmd = new SqlCommand("uspEquipoList", con))
+                using (SqlCommand cmd = new SqlCommand("uspParroquiaListById", con))
                 {
+                    cmd.Parameters.AddWithValue("idCanton", idCanton);
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
                     using (SqlDataReader readerAsync = await cmd.ExecuteReaderAsync())
@@ -25,20 +26,19 @@ namespace BackEnd.Dao
                             _struct.response(readerAsync.GetString(0), readerAsync.GetString(1), readerAsync.GetString(2));
                             if (_struct.code == "1")
                             {
-                                EquipoModel item = new();
-                                item.idEquipo = readerAsync.GetInt32(3);
-                                item.categoria = new();
-                                item.categoria.idCategoria = readerAsync.GetInt32(3);
-                                item.categoria.descripcion = readerAsync.GetString(4);
+                                ParroquiaModel item = new();
+                                item.idParroquia = readerAsync.GetInt32(3);
+                                item.canton = new();
+                                item.canton.idCanton = readerAsync.GetInt32(4);
                                 item.descripcion = readerAsync.GetString(5);
-                                item.estado  = readerAsync.GetBoolean(6);
-                                em.Add(item);
+                                item.estado = readerAsync.GetBoolean(6);
+                                data.Add(item);
                             }
                         }
                     }
                     con.Close();
                 }
-                _struct.data = em;
+                _struct.data = data;
             }
             catch (Exception ex)
             {
@@ -47,13 +47,13 @@ namespace BackEnd.Dao
             return _struct;
         }
 
-        public async Task<StructureResponse > EquipoPost(EquipoModel data)
-        {
+        public async Task<StructureResponse> ParroquiaPost(ParroquiaModel data)
+        {            
             try
             {
-                using (SqlCommand cmd = new SqlCommand("uspEquipoInsert", con))
+                using (SqlCommand cmd = new SqlCommand("uspParroquiaPost", con))
                 {
-                    cmd.Parameters.AddWithValue("descripcion", data.categoria.descripcion);
+                    cmd.Parameters.AddWithValue("idCanton", data.canton?.idCanton);
                     cmd.Parameters.AddWithValue("descripcion", data.descripcion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
@@ -61,7 +61,7 @@ namespace BackEnd.Dao
                     {
                         while (await readerAsync.ReadAsync())
                         {
-                            _struct.response(readerAsync.GetString(0), readerAsync.GetString(1), readerAsync.GetString(2));
+                            _struct.response(readerAsync.GetString(0), readerAsync.GetString(1), readerAsync.GetString(2));                           
                         }
                     }
                     con.Close();
@@ -74,14 +74,14 @@ namespace BackEnd.Dao
             return _struct;
         }
 
-        public async Task<StructureResponse> EquipoUpdate(EquipoModel data)
+        public async Task<StructureResponse> ParroquiaPut(ParroquiaModel data)
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("uspEquipoUpdate", con))
+                using (SqlCommand cmd = new SqlCommand("uspParroquiaPut", con))
                 {
-                    cmd.Parameters.AddWithValue("idEquipo", data.idEquipo);
-                    cmd.Parameters.AddWithValue("descripcion", data.categoria.descripcion);
+                    cmd.Parameters.AddWithValue("idParroquia", data.idParroquia);
+                    cmd.Parameters.AddWithValue("idCanton", data.canton?.idCanton);
                     cmd.Parameters.AddWithValue("descripcion", data.descripcion);
                     cmd.Parameters.AddWithValue("estado", data.estado);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -103,13 +103,13 @@ namespace BackEnd.Dao
             return _struct;
         }
 
-        public async Task<StructureResponse> EquipoDelete(int idEquipo)
+        public async Task<StructureResponse> ParroquiaDelete(int idParroquia)
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("uspEquipoDelete", con))
+                using (SqlCommand cmd = new SqlCommand("uspParroquiaDelete", con))
                 {
-                    cmd.Parameters.AddWithValue("idEquipo", idEquipo);
+                    cmd.Parameters.AddWithValue("idParroquia", idParroquia);
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
                     using (SqlDataReader readerAsync = await cmd.ExecuteReaderAsync())
