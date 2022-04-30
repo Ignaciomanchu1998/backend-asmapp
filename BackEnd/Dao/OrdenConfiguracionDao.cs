@@ -5,16 +5,16 @@ using System.Data.SqlClient;
 
 namespace BackEnd.Dao
 {
-    public class EquipoDao: ConnectionDB
+    public class OrdenConfiguracionDao : ConnectionDB
     {
         private StructureResponse _struct = new();
 
-        public async Task<StructureResponse> ProductoGetAll()
+        public async Task<StructureResponse> OrdenConfiguracionGetAll()
         {
-            var em = new List<EquipoModel>();
+            List<OrdenConfiguracionModel> data = new();
             try
             {
-                using (SqlCommand cmd = new SqlCommand("uspEquipoList", con))
+                using (SqlCommand cmd = new SqlCommand("uspOrdenConfiguracionList", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
@@ -25,20 +25,19 @@ namespace BackEnd.Dao
                             _struct.response(readerAsync.GetString(0), readerAsync.GetString(1), readerAsync.GetString(2));
                             if (_struct.code == "1")
                             {
-                                EquipoModel item = new();
-                                item.idEquipo = readerAsync.GetInt32(3);
-                                item.categoria = new();
-                                item.categoria.idCategoria = readerAsync.GetInt32(3);
-                                item.categoria.descripcion = readerAsync.GetString(4);
+                                OrdenConfiguracionModel item = new();
+                                item.idOrdenConfiguracion = readerAsync.GetInt32(3);
+                                item.codigo = readerAsync.GetInt32(4);
                                 item.descripcion = readerAsync.GetString(5);
-                                item.estado  = readerAsync.GetBoolean(6);
-                                em.Add(item);
+                                item.rango = readerAsync.GetInt32(6);
+                                item.estado = readerAsync.GetBoolean(7);
+                                data.Add(item);
                             }
                         }
                     }
                     con.Close();
                 }
-                _struct.data = em;
+                _struct.data = data;
             }
             catch (Exception ex)
             {
@@ -47,13 +46,13 @@ namespace BackEnd.Dao
             return _struct;
         }
 
-        public async Task<StructureResponse > EquipoPost(EquipoModel data)
+        public async Task<StructureResponse> OrdenConfiguracionPost(OrdenConfiguracionModel data)
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("uspEquipoInsert", con))
+                using (SqlCommand cmd = new SqlCommand("uspOrdenConfiguracionInsert", con))
                 {
-                    cmd.Parameters.AddWithValue("descripcion", data.categoria.descripcion);
+                    cmd.Parameters.AddWithValue("rango", data.rango);
                     cmd.Parameters.AddWithValue("descripcion", data.descripcion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
@@ -61,11 +60,12 @@ namespace BackEnd.Dao
                     {
                         while (await readerAsync.ReadAsync())
                         {
-                            _struct.response(readerAsync.GetString(0), readerAsync.GetString(1), readerAsync.GetString(2));
+                            _struct.response(readerAsync.GetString(0), readerAsync.GetString(1), readerAsync.GetString(2));                           
                         }
                     }
                     con.Close();
                 }
+                _struct.data = data;
             }
             catch (Exception ex)
             {
@@ -74,14 +74,14 @@ namespace BackEnd.Dao
             return _struct;
         }
 
-        public async Task<StructureResponse> EquipoUpdate(EquipoModel data)
+        public async Task<StructureResponse> OrdenConfiguracionPut(OrdenConfiguracionModel data)
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("uspEquipoUpdate", con))
+                using (SqlCommand cmd = new SqlCommand("uspOrdenConfiguracionUpdate", con))
                 {
-                    cmd.Parameters.AddWithValue("idEquipo", data.idEquipo);
-                    cmd.Parameters.AddWithValue("descripcion", data.categoria.descripcion);
+                    cmd.Parameters.AddWithValue("idOrdenConfiguracion", data.idOrdenConfiguracion);
+                    cmd.Parameters.AddWithValue("rango", data.rango);
                     cmd.Parameters.AddWithValue("descripcion", data.descripcion);
                     cmd.Parameters.AddWithValue("estado", data.estado);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -95,6 +95,7 @@ namespace BackEnd.Dao
                     }
                     con.Close();
                 }
+                _struct.data = data;
             }
             catch (Exception ex)
             {
@@ -103,13 +104,13 @@ namespace BackEnd.Dao
             return _struct;
         }
 
-        public async Task<StructureResponse> EquipoDelete(int idEquipo)
+        public async Task<StructureResponse> OrdenConfiguracionDelete(int idOrdenConfiguracion)
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("uspEquipoDelete", con))
+                using (SqlCommand cmd = new SqlCommand("uspOrdenConfiguracionDelete", con))
                 {
-                    cmd.Parameters.AddWithValue("idEquipo", idEquipo);
+                    cmd.Parameters.AddWithValue("idOrdenConfiguracion", idOrdenConfiguracion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
                     using (SqlDataReader readerAsync = await cmd.ExecuteReaderAsync())
