@@ -13,11 +13,11 @@
         public string? fechaNacimiento { get; set; }
         public string? email { get; set; }
         public string? telefono { get; set; }
-        public int idPais { get; set; }
-        public int idProvincia { get; set; }
-        public int idParroquia { get; set; }
-        public int direccion { get; set; }
-        public int fechaRegistro { get; set; }
-        public int estado { get; set; }
+        public PaisModel? pais { get; set; }
+        public ProvinciaModel? provincia { get; set; }
+        public ParroquiaModel? parroquia { get; set; }
+        public string direccion { get; set; }
+        public string fechaRegistro { get; set; }
+        public bool estado { get; set; }
     }
 }
