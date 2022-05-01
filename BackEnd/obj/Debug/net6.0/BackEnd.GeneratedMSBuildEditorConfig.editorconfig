@@ -8,9 +8,17 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BackEnd
 build_property.RootNamespace = BackEnd
+<<<<<<< HEAD
+build_property.ProjectDir = c:\Users\Ignacio\Desktop\Docs\Personal\Projects\asm\BackEnd\BackEnd\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = c:\Users\Ignacio\Desktop\Docs\Personal\Projects\asm\BackEnd\BackEnd
+=======
 build_property.ProjectDir = c:\Proyectos\aspmApp\backend-asmapp\BackEnd\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = c:\Proyectos\aspmApp\backend-asmapp\BackEnd
+>>>>>>> master
 build_property._RazorSourceGeneratorDebug = 

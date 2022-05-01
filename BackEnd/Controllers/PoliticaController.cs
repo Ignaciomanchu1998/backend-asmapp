@@ -11,12 +11,6 @@ namespace BackEnd.Controllers
         private StructureResponse _struct = new();
         private PoliticaDao _po = new();
 
-//<<<<<<< HEAD
-        [HttpGet(Name = "PoliticaGet")]
-//=======
-        //localhost:6087/api/Politica/PoliticaCreate/
-//       [HttpGet(Name = "PoliticaGet")]
-//>>>>>>> emilio-dev
         [ResponseCache(Duration = 60)]
         public async Task<IActionResult> PoliticaGetAll()
         {
