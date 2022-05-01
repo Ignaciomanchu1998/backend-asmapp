@@ -10,8 +10,7 @@ namespace BackEnd.Controllers
     {
         private StructureResponse _struct = new();
         private PoliticaDao _po = new();
-        
-        [HttpGet(Name = "PoliticaGet")]       
+
         [ResponseCache(Duration = 60)]
         public async Task<IActionResult> PoliticaGetAll()
         {
