@@ -11,8 +11,12 @@ namespace BackEnd.Controllers
         private StructureResponse _struct = new();
         private PoliticaDao _po = new();
 
+<<<<<<< HEAD
         //localhost:6087/api/Politica/PoliticaCreate/
         [HttpGet(Name = "PoliticaGet")]       
+=======
+        [HttpGet(Name = "PoliticaGet")]
+>>>>>>> master
         [ResponseCache(Duration = 60)]
         public async Task<IActionResult> PoliticaGetAll()
         {
@@ -20,7 +24,7 @@ namespace BackEnd.Controllers
             return Ok(_struct);
         }
 
-        [HttpPost(Name = "PoliticaCreate")]      
+        [HttpPost(Name = "PoliticaCreate")]
         public async Task<IActionResult> PoliticaPost(string json)
         {
             _struct = await _po.PoliticaPost(json);
