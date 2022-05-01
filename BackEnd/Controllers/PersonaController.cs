@@ -36,5 +36,12 @@ namespace BackEnd.Controllers
             var res = await _p.Delete(idPersona);
             return Ok(res);
         }
+
+        public async Task<IActionResult> GetId(int idPersona){
+            
+        }
+
+
+
     }
 }
