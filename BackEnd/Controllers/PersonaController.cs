@@ -37,9 +37,7 @@ namespace BackEnd.Controllers
             return Ok(res);
         }
 
-        public async Task<IActionResult> GetId(int idPersona){
-            
-        }
+       
 
 
 
