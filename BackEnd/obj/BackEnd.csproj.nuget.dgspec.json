@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Proyectos\\aspmApp\\backend-asmapp\\BackEnd\\BackEnd.csproj": {}
+    "C:\\Users\\Ignacio\\Desktop\\Docs\\Personal\\Projects\\asm\\BackEnd\\BackEnd\\BackEnd.csproj": {}
   },
   "projects": {
-    "C:\\Proyectos\\aspmApp\\backend-asmapp\\BackEnd\\BackEnd.csproj": {
+    "C:\\Users\\Ignacio\\Desktop\\Docs\\Personal\\Projects\\asm\\BackEnd\\BackEnd\\BackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Proyectos\\aspmApp\\backend-asmapp\\BackEnd\\BackEnd.csproj",
+        "projectUniqueName": "C:\\Users\\Ignacio\\Desktop\\Docs\\Personal\\Projects\\asm\\BackEnd\\BackEnd\\BackEnd.csproj",
         "projectName": "BackEnd",
-        "projectPath": "C:\\Proyectos\\aspmApp\\backend-asmapp\\BackEnd\\BackEnd.csproj",
-        "packagesPath": "C:\\Users\\VMC\\.nuget\\packages\\",
-        "outputPath": "C:\\Proyectos\\aspmApp\\backend-asmapp\\BackEnd\\obj\\",
+        "projectPath": "C:\\Users\\Ignacio\\Desktop\\Docs\\Personal\\Projects\\asm\\BackEnd\\BackEnd\\BackEnd.csproj",
+        "packagesPath": "C:\\Users\\Ignacio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ignacio\\Desktop\\Docs\\Personal\\Projects\\asm\\BackEnd\\BackEnd\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\VMC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Ignacio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -71,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
