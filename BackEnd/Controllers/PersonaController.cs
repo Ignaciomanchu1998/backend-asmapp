@@ -16,25 +16,30 @@ namespace BackEnd.Controllers
             return Ok(res);
         }
 
-        [HttpGet(Name = "Post")]
+        [HttpPost(Name = "Post")]
         public async Task<IActionResult> Post(string json)
         {
             var res = await _p.Post(json);
             return Ok(res);
         }
 
-        [HttpGet(Name ="Put")]
+        [HttpPut(Name ="Put")]
         public async Task<IActionResult> Put(string json)
         {
             var res = await _p.Put(json);
             return Ok(res);
         }
 
-        [HttpGet(Name ="Delete")]
+        [HttpDelete(Name ="Delete")]
         public async Task<IActionResult> Delete(int idPersona)
         {
             var res = await _p.Delete(idPersona);
             return Ok(res);
         }
+
+       
+
+
+
     }
 }
